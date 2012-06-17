@@ -11,7 +11,7 @@ http://github.com/antonholmquist/opengl-es-2-0-shaders
 
 sVertexLighting
 -------
-Simple vertex lighting with support for one directional light. Should be somewhat similar to the fixed pipeline code used in OpenGL ES 1.1.
+Simple vertex lighting with support for one directional light. Should be somewhat similar to the fixed pipeline code in OpenGL ES 1.1.
 
 sFragmentLighting
 -------
