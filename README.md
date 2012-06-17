@@ -19,5 +19,5 @@ Per-pixel lighting with support for one directional light.
 
 sEnvironmentMapping
 -------
-Per pixel environment mapping.
+Per-pixel environment reflection mapping.
 
