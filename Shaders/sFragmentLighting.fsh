@@ -1,5 +1,5 @@
 //
-//  sVertexLighting.vsh
+//  sFragmentLighting.fsh
 //
 //  Created by Anton Holmquist
 //  Copyright 2012 Anton Holmquist. All rights reserved.
@@ -9,6 +9,8 @@
 //
 //  http://github.com/antonholmquist/opengl-es-2-0-shaders
 //
+
+precision highp float;
 
 struct DirectionalLight {
     vec3 direction;
@@ -31,46 +33,30 @@ uniform DirectionalLight u_directionalLight;
 // Material
 uniform Material u_material;
 
-// Matrices
-uniform mat4 u_mvMatrix;
-uniform mat4 u_mvpMatrix;
+varying vec3 v_ecNormal;
 
-// Attributes
-attribute vec4 a_position; 
-attribute vec3 a_normal;
-
-// Varyings
-varying vec4 v_light;
-
-void main() {
+void main() { 
     
-    // Define position and normal in model coordinates
-    vec4 mcPosition = a_position;
-    vec3 mcNormal = a_normal;
     
-    // Calculate and normalize eye space normal
-    vec3 ecNormal = vec3(u_mvMatrix * vec4(mcNormal, 0.0));
-    ecNormal = ecNormal / length(ecNormal);
+    // Normalize v_ecNormal
+    vec3 ecNormal = v_ecNormal / length(v_ecNormal);
     
-    // Do light calculations
     float ecNormalDotLightDirection = max(0.0, dot(ecNormal, u_directionalLight.direction));
     float ecNormalDotLightHalfplane = max(0.0, dot(ecNormal, u_directionalLight.halfplane));
     
-    // Ambient light
+    // Calculate ambient light
     vec4 ambientLight = u_directionalLight.ambientColor * u_material.ambientFactor;
     
-    // Diffuse light
+    // Calculate diffuse light
     vec4 diffuseLight = ecNormalDotLightDirection * u_directionalLight.diffuseColor * u_material.diffuseFactor;
     
-    // Specular light
+    // Calculate specular light
     vec4 specularLight = vec4(0.0);
     if (ecNormalDotLightHalfplane > 0.0) {
         specularLight = pow(ecNormalDotLightHalfplane, u_material.shininess) * u_directionalLight.specularColor * u_material.specularFactor;
     } 
     
-    v_light = ambientLight + diffuseLight + specularLight;
-    gl_Position = u_mvpMatrix * mcPosition;    
+    vec4 light = ambientLight + diffuseLight + specularLight;
     
+    gl_FragColor = light;
 }
-
-
