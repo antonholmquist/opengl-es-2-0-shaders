@@ -10,3 +10,8 @@ http://twitter.com/antonholmquist
 sVertexLighting
 -------
 Simple vertex lighting. Should be somewhat similar to the fixed pipeline code used in OpenGL ES 1.1.
+
+sFragmentLighting
+-------
+Per-pixel lighting.
+
