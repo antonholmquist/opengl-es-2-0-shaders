@@ -1,17 +1,19 @@
 OpenGL ES 2.0 Shaders
 =============
 
-This is where I intend to create a collection of OpenGL ES 2.0 shaders.
+A collection of OpenGL ES 2.0 shaders.
 
 http://antonholmquist.com
 
 http://twitter.com/antonholmquist
 
+http://github.com/antonholmquist/opengl-es-2-0-shaders
+
 sVertexLighting
 -------
-Simple vertex lighting. Should be somewhat similar to the fixed pipeline code used in OpenGL ES 1.1.
+Simple vertex lighting with support for one directional light. Should be somewhat similar to the fixed pipeline code used in OpenGL ES 1.1.
 
 sFragmentLighting
 -------
-Per-pixel lighting.
+Per-pixel lighting with support for one directional light.
 
