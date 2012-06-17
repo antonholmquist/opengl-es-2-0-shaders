@@ -2,7 +2,9 @@ OpenGL ES 2.0 Shaders
 =============
 
 This is where I intend to create a collection of OpenGL ES 2.0 shaders.
+
 http://antonholmquist.com
+
 http://twitter.com/antonholmquist
 
 sVertexLighting
