@@ -21,3 +21,7 @@ sEnvironmentMapping
 -------
 Per-pixel environment reflection mapping.
 
+sSlowBumpMapping
+-------
+Somewhat inefficient but working bump map shader. More work could be done in vertex shader to optimize it.
+
